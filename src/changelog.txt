@@ -1,0 +1,22 @@
+---------------------------------------------------------------------------------------------------
+Version: 2.0.2
+Date: 2021-08-26
+  Bugfixes:
+    - Fix: craft nearby items if no character
+---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2021-01-20
+  Bugfixes:
+    - Fix: attempt to index field 'player_info' (a nil value)
+---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 2021-01-18
+  Features:
+    - hotkey+button to craft nearby ghost items
+    - hotkey craft items from your cursor
+    - hotkey craft items from your quickbar.
+  Info:
+    - functionalty from some existing crafting mods joined together
+      - Crafting Hotkeys (https://mods.factorio.com/mod/crafting-hotkeys)
+      - Handcraft Ghosts (https://mods.factorio.com/mod/HandcraftGhosts)
+      - Craft Under Mouse (https://mods.factorio.com/mod/craft-under-mouse)

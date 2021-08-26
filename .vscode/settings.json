@@ -1,0 +1,12 @@
+{
+	"Lua.diagnostics.globals": [
+		"defines",
+		"game",
+		"script",
+		"global",
+		"remote",
+		"iif",
+		"mods",
+		"data"
+	]
+}
