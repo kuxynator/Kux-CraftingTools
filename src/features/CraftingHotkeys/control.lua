@@ -1,5 +1,22 @@
 local craft = function(player, item, count)
-	print("craft "..count.." "..item.name)
+    print("craft "..count.." "..item.name)
+
+    -- Give items to player without crafting if in editor or cheat
+    -- mode. Fixes issue with player.get_craftable_count() function
+    -- causing crashes when in editor mode as well.
+    if player.controller_type == defines.controllers.editor or player.cheat_mode  then
+
+        -- Grant one stack of items instead of filling-up the
+        -- inventory in editor/cheat mode.
+        if count == 0 then
+            count = item.stack_size
+        end
+
+        player.insert({name=item.name, count=count})
+
+        return
+    end
+
     local found = false
     local len = 0
     local recipes = {}

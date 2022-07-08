@@ -23,6 +23,15 @@ local function autoCraft(player)
 	info.player_position = player.position
 
 	local reach = player.character.reach_distance
+
+	-- Limit reach distance to some sane value. Useful in cases
+	-- where mods extend reach distance (like creative/cheat mods)
+	-- beyond a value that can be safely used for bounding box
+	-- when searching for entities. Additional plus is that if
+	-- values are too high, the game will freeze up while the
+	-- search function is running.
+	reach = reach > 1000 and 1000
+
 	if info.next >= #info.ghosts then
 		local aabb = {
 			left_top = {player.position.x - reach, player.position.y - reach},
@@ -51,7 +60,10 @@ local function autoCraft(player)
 
 					local recipe = game.recipe_prototypes[stack.name]
 					local item = stack.name
-					if player.force.recipes[item] ~= nil and
+
+					if player.controller_type == defines.controllers.editor or player.cheat_mode then
+						player.insert({name=item, count=1})
+					elseif player.force.recipes[item] ~= nil and
 						((player.get_craftable_count(item) > 0 and
 							player.force.recipes[item].enabled == true)) then
 						if recipe ~= nil and recipe.allow_as_intermediate then
