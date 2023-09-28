@@ -1,4 +1,6 @@
 local mod_gui = require("mod-gui")
+local mod = require("mod")
+local Factorissimo = KuxCoreLib.Factorissimo --[[@as KuxCoreLib.Factorissimo]]
 
 local uiDefinitions = {
 	["CraftNearbyGhostItemsButton"] = {
@@ -22,13 +24,16 @@ local function autoCraft(player)
 	local dy = player.position.y - info.player_position.y
 	info.player_position = player.position
 
-	local reach = player.character.reach_distance
+	local max_reach = player.mod_settings[mod.prefix.."max-reach"].value
+	if(max_reach <= 0) then max_reach = player.character.reach_distance end
+	local reach = player.mod_settings[mod.prefix.."reach-mode"].value == "character" and math.min(player.character.reach_distance, max_reach) or max_reach
+
 	if info.next >= #info.ghosts then
-		local aabb = {
-			left_top = {player.position.x - reach, player.position.y - reach},
-			right_bottom = {
-				player.position.x + reach, player.position.y + reach
-			}
+		local aabb = Factorissimo.isFactoryFloor(player.surface) and Factorissimo.getFactoryWallRect(player.surface, player.position) or
+				{
+					left_top     = {player.position.x - reach, player.position.y - reach},
+					right_bottom = {player.position.x + reach, player.position.y + reach
+				}
 		}
 		local ghosts = player.surface.find_entities_filtered {
 			area = aabb,

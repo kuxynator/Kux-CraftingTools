@@ -7,6 +7,28 @@
 		"remote",
 		"iif",
 		"mods",
-		"data"
+		"data",
+		"__Profiler"
+	],
+	"Lua.runtime.builtin": {
+		"io": "disable",
+		"os": "disable",
+		"math": "disable",
+		"debug": "disable",
+		"coroutine": "disable",
+		"package": "disable"
+	},
+	"Lua.runtime.special": {
+		"__object_name": "type"
+	},
+	"Lua.diagnostics.disable": [
+		"lowercase-global"
+	],
+	"Lua.runtime.plugin": "c:/Users/Kay/AppData/Roaming/Code/User/workspaceStorage/d0bc8354f0dc513f7e830268636ac9ef/justarandomgeek.factoriomod-debug/sumneko-3rd/factorio/plugin.lua",
+	"Lua.workspace.library": [
+		"e:\\Program Files\\Factorio\\1.1\\data",
+		"c:/Users/Kay/AppData/Roaming/Code/User/workspaceStorage/d0bc8354f0dc513f7e830268636ac9ef/justarandomgeek.factoriomod-debug/sumneko-3rd/factorio/library",
+		"../Kux-CoreLib/src/lib",
+		"../Factorio/meta"
 	]
 }

@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.1.0
+Date: 2023-09-28
+  Features:
+    - ADD a setting for reach-mode and max-reach.  
+      A value for max-reach is intended to prevent a too large search area if the character reach is very large.
+    - ADD max reach distance in Factorissimo building.  
+      Regardless of the setting the reach distance in a Factorissimo building is allways the area of the current building. This prevents accidentally searching other buildings on the same surface.
+  Changes:
+    - uses Kux-CoreLib 2.9.0
+---------------------------------------------------------------------------------------------------
 Version: 2.0.2
 Date: 2021-08-26
   Bugfixes:

@@ -1,4 +1,4 @@
-local craft = function(player, item, count)
+local function craft(player, item, count)
 	print("craft "..count.." "..item.name)
     local found = false
     local len = 0
@@ -67,7 +67,7 @@ local craft2 = function(player, item, count)
 	pcall(player.begin_crafting, {count=count, recipe=item.name, silent=false})
 end
 
-local register = function(prefix, handler)
+local function register(prefix, handler)
     script.on_event(prefix .. "craft-1", handler(1))
     script.on_event(prefix .. "craft-5", handler(5))
     script.on_event(prefix .. "craft-all", handler(0))
